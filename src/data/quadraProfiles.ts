@@ -38,3 +38,7 @@ export const QUADRA_PROFILES: Record<Quadra, QuadraProfile> = {
     cautions: ['bisa terlalu lama menahan diri dari ledakan konflik sampai masalahnya menumpuk', 'terkadang terlalu lama menunggu momen atau ruang yang "benar-benar aman" sampai telat bertindak']
   }
 };
+    strengths: ['membuka peluang pengembangan diri secara personal', 'sangat peka menjaga batas nyaman sebuah hubungan', 'mengoptimalkan cara kerja yang praktis', 'menjaga keseimbangan ritme hidup dan kerja'],
+    cautions: ['bisa terlalu lama menahan diri dari ledakan konflik sampai masalahnya menumpuk', 'terkadang terlalu lama menunggu momen atau ruang yang "benar-benar aman" sampai telat bertindak']
+  }
+};
