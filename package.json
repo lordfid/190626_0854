@@ -1,0 +1,27 @@
+{
+  "name": "socionics-dalam-diriku",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.json && vite build",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "audit": "tsx scripts/audit.ts",
+    "audit:language": "tsx scripts/auditLanguage.ts"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "html-to-image": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "typescript": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.3",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "tsx": "latest"
+  }
+}
