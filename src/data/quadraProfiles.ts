@@ -5,36 +5,36 @@ export const QUADRA_PROFILES: Record<Quadra, QuadraProfile> = {
     quadra: 'Alpha',
     types: ['ILE', 'SEI', 'ESE', 'LII'],
     valuedElements: ['Ne', 'Ti', 'Fe', 'Si'],
-    climate: 'Terbuka pada ide baru, ingin suasana cukup ringan, dan suka ketika obrolan bisa bermain tanpa kehilangan struktur.',
-    socialMood: 'Hangat, penasaran, diskursif, dan cenderung mencari kenyamanan bersama setelah ide diuji.',
-    strengths: ['membuka kemungkinan', 'merapikan konsep', 'menghidupkan suasana', 'menjaga pengalaman tetap nyaman'],
-    cautions: ['dapat menghindari tekanan keras terlalu lama', 'bisa menyepelekan batas personal yang tidak diucapkan']
+    climate: 'Suka lingkungan yang terbuka untuk ide apa saja, suasananya ringan (tidak kaku), dan paling seru kalau obrolannya bisa melompat liar tapi tetap punya dasar logika (misalnya, berdebat santai soal teori konspirasi atau ide bisnis fiktif sambil mengopi).',
+    socialMood: 'Hangat, penuh rasa penasaran, suka diskusi panjang, dan biasanya diakhiri dengan mencari makan enak atau sekadar santai bersama setelah puas bertukar pikiran.',
+    strengths: ['menggali kemungkinan dan ide baru', 'merapikan konsep yang berantakan', 'menghidupkan suasana tongkrongan', 'menjaga kenyamanan perut dan badan'],
+    cautions: ['kadang terlalu lama menghindari konflik atau tekanan hidup yang keras', 'bisa tidak sengaja menabrak batas privasi orang karena suasana yang kelewat santai']
   },
   Beta: {
     quadra: 'Beta',
     types: ['EIE', 'LSI', 'SLE', 'IEI'],
     valuedElements: ['Ni', 'Fe', 'Se', 'Ti'],
-    climate: 'Intens, terarah, peka pada momentum, dan lebih hidup ketika ada posisi, ritme emosi, serta struktur yang jelas.',
-    socialMood: 'Dramatis secukupnya, berdaya dorong, loyal pada arah, dan tidak terlalu takut pada konfrontasi yang perlu.',
-    strengths: ['membaca momentum', 'menggerakkan suasana', 'mengambil posisi', 'menjaga struktur'],
-    cautions: ['dapat terasa terlalu intens', 'bisa menekan ritme tubuh atau kenyamanan kecil']
+    climate: 'Suasananya intens, punya arah yang jelas, sangat peka pada momentum, dan lebih hidup kalau ada struktur, peran yang tegas, serta luapan emosi yang lepas (misalnya, *vibes* rapat panitia yang berapi-api lalu diakhiri dengan yel-yel kebersamaan).',
+    socialMood: 'Sangat ekspresif, punya daya dorong tinggi, loyal pada kubunya, dan sama sekali tidak takut untuk adu mulut atau konfrontasi kalau memang situasinya menuntut.',
+    strengths: ['membaca momentum yang paling pas', 'membakar emosi dan semangat kelompok', 'berani mengambil posisi di depan', 'menjaga aturan main tetap tegak'],
+    cautions: ['bisa terasa terlalu mengintimidasi atau "panas" bagi orang luar', 'terkadang menyepelekan rasa lelah fisik atau kenyamanan kecil demi mencapai tujuan']
   },
   Gamma: {
     quadra: 'Gamma',
     types: ['SEE', 'ILI', 'LIE', 'ESI'],
     valuedElements: ['Se', 'Fi', 'Te', 'Ni'],
-    climate: 'Pragmatis, selektif, melihat konsekuensi, dan menghargai hubungan yang jelas batas serta hasil yang nyata.',
-    socialMood: 'Tegas, personal, realistis, dan sering lebih percaya bukti tindakan daripada suasana yang terlalu ramai.',
-    strengths: ['mengambil langkah nyata', 'menjaga loyalitas personal', 'membaca hasil', 'memperkirakan konsekuensi'],
-    cautions: ['bisa terlihat keras', 'kadang kurang sabar dengan permainan sosial yang terlalu ringan']
+    climate: 'Sangat pragmatis, pilih-pilih teman (*circle* kecil), selalu melihat dampak jangka panjang, dan lebih suka hubungan dengan batas jelas yang menghasilkan sesuatu yang konkret (misalnya, obrolan dua sahabat yang langsung membahas strategi investasi atau progres proyek tanpa banyak basa-basi).',
+    socialMood: 'Tegas, menjaga privasi lingkar dalam, realistis, dan jauh lebih menghargai bukti tindakan (misalnya membantu saat susah) daripada sekadar keramaian atau kata-kata manis.',
+    strengths: ['mengeksekusi langkah nyata tanpa ragu', 'menjaga kesetiaan pada lingkar terdekat', 'fokus pada hasil akhir yang terukur', 'memperkirakan konsekuensi jauh ke depan'],
+    cautions: ['bisa terlihat terlalu keras, dingin, atau menghakimi dari luar', 'terkadang cepat muak dan tidak sabaran menghadapi drama sosial atau basa-basi yang dangkal']
   },
   Delta: {
     quadra: 'Delta',
     types: ['IEE', 'SLI', 'LSE', 'EII'],
     valuedElements: ['Ne', 'Fi', 'Te', 'Si'],
-    climate: 'Mencari ruang manusiawi untuk tumbuh, menjaga hubungan yang tulus, dan menyukai cara kerja yang praktis tanpa mengorbankan kenyamanan.',
-    socialMood: 'Tenang, suportif, realistis, dan memberi ruang bagi alternatif tanpa memaksa semua orang tampil sama.',
-    strengths: ['membuka peluang personal', 'membaca batas hubungan', 'meningkatkan kerja nyata', 'menjaga ritme hidup'],
-    cautions: ['bisa menghindari ledakan konflik', 'kadang terlalu lama menunggu ruang yang terasa aman']
+    climate: 'Mencari ruang yang sehat untuk saling berkembang, menjaga hubungan yang benar-benar tulus, dan menyukai cara kerja yang efisien tapi badannya tetap bisa beristirahat (misalnya, rekan kerja yang saling *support* bekerja cepat supaya bisa pulang tepat waktu mengurus keluarga/hobi).',
+    socialMood: 'Tenang, suportif, sangat membumi, dan memberi ruang bebas untuk orang mau menjadi apa saja tanpa ada paksaan harus ikut arus mayoritas.',
+    strengths: ['membuka peluang pengembangan diri secara personal', 'sangat peka menjaga batas nyaman sebuah hubungan', 'mengoptimalkan cara kerja yang praktis', 'menjaga keseimbangan ritme hidup dan kerja'],
+    cautions: ['bisa terlalu lama menahan diri dari ledakan konflik sampai masalahnya menumpuk', 'terkadang terlalu lama menunggu momen atau ruang yang "benar-benar aman" sampai telat bertindak']
   }
 };
