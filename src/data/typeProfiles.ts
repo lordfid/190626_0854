@@ -41,6 +41,101 @@ const mistypes: Record<SocionicsType, SocionicsType[]> = {
 };
 
 const oneLines: Record<SocionicsType, string> = {
+  ILE: 'Membuka berbagai kemungkinan, lalu menyusun logikanya agar ide tersebut bisa dijelaskan.',
+  SEI: 'Menjaga kenyamanan fisik diri dan sekitar, sambil meredakan ketegangan agar suasana tetap santai.',
+  ESE: 'Menghidupkan suasana kelompok dan memastikan semua orang merasa diperhatikan serta nyaman.',
+  LII: 'Menyusun prinsip dan aturan secara rapi, lalu membuka opsi baru yang tidak menabrak logika tersebut.',
+  EIE: 'Membaca emosi bersama dalam kelompok, lalu mendorongnya ke arah tujuan yang jelas dan terasa penting.',
+  LSI: 'Membuat aturan dan batas yang tegas agar segala sesuatu tetap berjalan sesuai rencana dan tidak berantakan.',
+  SLE: 'Mengambil posisi kendali, mendesak orang lain membuat keputusan cepat, dan memakai aturan untuk menyingkirkan hambatan.',
+  IEI: 'Membaca arah perubahan situasi yang pelan-pelan terjadi, dan memberikan respons emosional pada waktu yang pas.',
+  SEE: 'Membaca karakter orang secara langsung, lalu menggerakkan situasi lewat lobi personal dan tindakan nyata.',
+  ILI: 'Menebak urutan kejadian hingga kemungkinan terburuknya, lalu memilih cara yang paling efisien dan meminimalkan rugi.',
+  LIE: 'Mengejar hasil nyata yang terukur, dengan pandangan yang selalu memperhitungkan pergerakan jangka panjang.',
+  ESI: 'Menjaga privasi dan kesetiaan dalam hubungan, serta berani mengambil sikap tegas kalau nilai pribadinya dilanggar.',
+  IEE: 'Membaca potensi terpendam seseorang dan membuka koneksi baru, tapi tetap paham kapan harus menjaga jarak personal.',
+  SLI: 'Menyelesaikan pekerjaan dengan cara yang paling tidak melelahkan, agar punya waktu cukup untuk beristirahat.',
+  LSE: 'Mengatur sistem kerja dan prosedur dengan rinci, tanpa melupakan kualitas fasilitas dan kesejahteraan harian.',
+  EII: 'Membaca kecocokan dan rasa percaya, lalu memberikan dukungan yang aman agar orang lain bisa mengembangkan dirinya.'
+};
+
+function makeProfile(code: SocionicsType): TypeProfile {
+  const modelA = MODEL_A_BY_TYPE[code];
+  const base = ELEMENT_DESCRIPTIONS[modelA.base];
+  const creative = ELEMENT_DESCRIPTIONS[modelA.creative];
+  const role = ELEMENT_DESCRIPTIONS[modelA.role];
+  const vulnerable = ELEMENT_DESCRIPTIONS[modelA.vulnerable];
+  const suggestive = ELEMENT_DESCRIPTIONS[modelA.suggestive];
+  const mobilizing = ELEMENT_DESCRIPTIONS[modelA.mobilizing];
+  const ignoring = ELEMENT_DESCRIPTIONS[modelA.ignoring];
+  const demonstrative = ELEMENT_DESCRIPTIONS[modelA.demonstrative];
+  
+  return {
+    code,
+    fullName: fullNames[code],
+    quadra: TYPE_QUADRA[code],
+    modelA,
+    oneLine: oneLines[code],
+    corePattern: `Pola inti ${code}: ${base.resultLanguage} adalah fokus utama yang berjalan otomatis, sementara ${creative.resultLanguage} dipakai sebagai cara pendukung yang luwes.`,
+    baseDescription: `Fokus pertamamu secara natural ada pada ${base.publicName.toLowerCase()}. Ini adalah caramu memproses situasi secara instingtif sehari-hari, bukan cara yang harus kamu rencanakan atau paksa.`,
+    creativeDescription: `Untuk membantu tujuanmu, kamu menggunakan ${creative.publicName.toLowerCase()} dengan lincah. Ini adalah alat bantu untuk menyelesaikan persoalan, bukan sesuatu yang harus kamu pertahankan secara kaku.`,
+    roleMask: `Saat berhadapan dengan tuntutan sosial, kamu mampu memakai ${role.publicName.toLowerCase()} agar terlihat menyesuaikan diri. Kamu bisa melakukannya, tapi sering terasa menguras tenaga karena bukan kebiasaan aslimu.`,
+    vulnerableRisk: `Area ${vulnerable.publicName.toLowerCase()} adalah titik rentanmu. Bila kamu dituntut untuk merespons langsung di area ini, kamu cenderung merasa tegang, cemas, kaku, atau mencari cara untuk segera menghindarinya.`,
+    suggestiveNeed: `Menerima dukungan dari orang lain terkait urusan ${suggestive.publicName.toLowerCase()} sangat melegakan buatmu. Kamu diam-diam merasa terbantu bila ada yang mau mengurus hal ini tanpa banyak mendikte.`,
+    mobilizingDrive: `Dalam hal ${mobilizing.publicName.toLowerCase()}, kamu memiliki dorongan besar untuk terlihat mampu. Kamu ingin terus belajar dan diakui di area ini, walaupun sebenarnya kemampuanmu masih sering tidak konsisten.`,
+    ignoringStyle: `Kamu sebenarnya sanggup memproses ${ignoring.publicName.toLowerCase()}, tapi cenderung sengaja mengabaikannya. Kamu merasa fokus ke area tersebut kurang penting dan hanya menghabiskan energi tanpa hasil yang sepadan.`,
+    demonstrativeSkill: `Kemampuanmu dalam mengurus ${demonstrative.publicName.toLowerCase()} berjalan diam-diam tanpa banyak dibahas. Kamu menyelesaikan urusan ini dengan baik di latar belakang, dan biasanya orang lain baru menyadari peranmu saat keadaan darurat.`,
+    strengths: [
+      `Sangat cepat merespons melalui pola utama: ${base.shortName.toLowerCase()}.`,
+      `Cukup praktis dalam menggunakan ${creative.shortName.toLowerCase()} sebagai taktik memecahkan masalah.`,
+      `Memberikan kontribusi stabil pada urusan ${demonstrative.shortName.toLowerCase()} tanpa perlu pamrih atau sorotan.`
+    ],
+    drains: [
+      `Tuntutan atau kritik tajam seputar ${vulnerable.shortName.toLowerCase()} membuatmu cepat lelah secara mental.`,
+      `Harus terus-menerus tampil dengan gaya ${role.shortName.toLowerCase()} terasa berat dan menguras kapasitas fisikmu.`,
+      `Berada di lingkungan yang tidak memberikanmu dukungan di area ${suggestive.shortName.toLowerCase()} terasa sangat menyulitkan.`
+    ],
+    reliefNeeds: [
+      `Dibantu membereskan masalah ${suggestive.shortName.toLowerCase()} secara nyata, tanpa membuatmu merasa direndahkan.`,
+      `Diberi apresiasi secara tulus untuk setiap usaha yang kamu lakukan pada ${mobilizing.shortName.toLowerCase()}.`,
+      `Diberi ruang bebas memproses dengan cara andalanmu, tanpa harus menjelaskan langkah demi langkahnya kepada orang lain.`
+    ],
+    developmentNotes: [
+      `Bila berhadapan dengan situasi terkait ${vulnerable.shortName.toLowerCase()} yang membuatmu cemas, temukan satu langkah penyelesaian terkecil agar kamu tidak terus-terusan menghindar.`,
+      `Ingat bahwa ${creative.shortName.toLowerCase()} hanyalah metode bantu bagimu, jadi kamu tidak perlu menuntut dirimu untuk selalu sempurna di area tersebut.`,
+      `Jangan jadikan satu hasil ini sebagai kepastian mutlak; pertimbangkan juga kandidat tipe kedua dan ketiga jika jarak probabilitasnya tipis.`
+    ],
+    commonMistypes: mistypes[code],
+    stereotypeBlock: `Gambaran berlebihan dari luar: ${code} sering dilabeli sebagai karakter yang melihat dunia dengan logika khasnya sendiri, lalu mengeluh ketika orang lain dianggap terlalu dangkal memahaminya. Deskripsi ini sengaja dilebih-lebihkan, jadi jangan jadikan acuan untuk menilai perilaku aslimu sehari-hari.`,
+    notADiagnosisNote: 'Profil ini merupakan pemetaan kecenderungan dari pola jawaban yang kamu berikan, bukan diagnosis medis atau penentuan final mengenai karaktermu.'
+  };
+}
+
+export const TYPE_PROFILES: Record<SocionicsType, TypeProfile> = {
+  ILE: makeProfile('ILE'),
+  SEI: makeProfile('SEI'),
+  ESE: makeProfile('ESE'),
+  LII: makeProfile('LII'),
+  EIE: makeProfile('EIE'),
+  LSI: makeProfile('LSI'),
+  SLE: makeProfile('SLE'),
+  IEI: makeProfile('IEI'),
+  SEE: makeProfile('SEE'),
+  ILI: makeProfile('ILI'),
+  LIE: makeProfile('LIE'),
+  ESI: makeProfile('ESI'),
+  IEE: makeProfile('IEE'),
+  SLI: makeProfile('SLI'),
+  LSE: makeProfile('LSE'),
+  EII: makeProfile('EII')
+};
+  IEE: ['EII', 'ILE', 'SEE'],
+  SLI: ['LSE', 'SEI', 'ILI'],
+  LSE: ['SLI', 'LIE', 'ESE'],
+  EII: ['IEE', 'ESI', 'LII']
+};
+
+const oneLines: Record<SocionicsType, string> = {
   ILE: 'Membuka kemungkinan, lalu mencari rangka yang membuatnya masuk akal.',
   SEI: 'Menjaga kualitas pengalaman sambil menghaluskan suasana di sekitar.',
   ESE: 'Menghidupkan atmosfer dan membuat kenyamanan terasa bisa dibagi.',
